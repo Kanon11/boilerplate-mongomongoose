@@ -2,12 +2,22 @@ const mongoose = require('mongoose');
 
 
 require('dotenv').config();
-mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true })
 
 let Person = require('./models/Person');
 // let Person;
 
 const createAndSavePerson = (done) => {
+  const document = new Person({ name: "Kanon11", age: 30, favoriteFoods: ['mango', 'orange', 'apple'] })
+  document.save((err,data) => {
+    if (err) {
+      console.log("Error occured: ",err)
+    } else {
+      console.log("success: ", data);
+    }
+  });
+
+
   done(null /*, data*/);
 };
 
