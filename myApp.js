@@ -8,7 +8,7 @@ let Person = require('./models/Person');
 // let Person;
 
 const createAndSavePerson = (done) => {
-  const document = new Person({ name: "Kanon11", age: 30, favoriteFoods: ['mango', 'orange', 'apple'] })
+  const document = new Person({ name: "Kpol", age: 30, favoriteFoods: ['mango', 'orange', 'apple'] })
   document.save((err,data) => {
     if (err) {
      return done(err);
