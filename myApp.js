@@ -11,14 +11,14 @@ const createAndSavePerson = (done) => {
   const document = new Person({ name: "Kanon11", age: 30, favoriteFoods: ['mango', 'orange', 'apple'] })
   document.save((err,data) => {
     if (err) {
-      console.log("Error occured: ",err)
-    } else {
-      console.log("success: ", data);
-    }
+     return done(err);
+    } 
+      done(null , data);
+    
   });
 
 
-  done(null /*, data*/);
+
 };
 
 const createManyPeople = (arrayOfPeople, done) => {
