@@ -105,7 +105,7 @@ const removeManyPeople = async (done) => {
 
 
   const nameToRemove = "Mary";
- let response= await Person.remove({ name: nameToRemove })
+ let response= await Person.deleteMany({ name: nameToRemove })
   done(null ,response);
 };
 
@@ -114,7 +114,13 @@ const queryChain = (done) => {
 
   done(null /*, data*/);
 };
-
+// removeManyPeople((err, response) => {
+//   if (err) {
+//     console.error(err);
+//   } else {
+//     console.log("Deletion Response:", response);
+//   }
+// })
 /** **Well Done !!**
 /* You completed these challenges, let's go celebrate !
  */
