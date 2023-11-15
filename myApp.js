@@ -69,7 +69,12 @@ const findEditThenSave = (personId, done) => {
     personObj.favoriteFoods.push(foodToAdd);
     personObj.save((err, data) => {
       if (err) {
-        done(err);
+        // Check for duplicate key error or other errors
+        if (err.code === 11000 || err.code === 11001) {
+          console.log("Duplicate key error:", err.message);
+          return done(new Error("Duplicate key error"));
+        }
+        return done(err);
       }
       done(null, data);
     })
