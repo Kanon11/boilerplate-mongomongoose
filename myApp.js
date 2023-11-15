@@ -120,7 +120,14 @@ const queryChain = (done) => {
 
   done(null /*, data*/);
 };
-
+// createManyPeople([{ name: 'Mary', age: 1 }, { name: 'Mary', age: 2 }], (err, response) => {
+//   if (err) {
+//     console.log(err)
+//   }
+//   else {
+//     console.log("Many people: ", response);
+//   }
+// })
 // removeManyPeople((err, response) => {
 //   if (err) {
 //     console.error(err);
