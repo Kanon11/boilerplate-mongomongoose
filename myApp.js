@@ -117,10 +117,24 @@ const removeManyPeople =  (done) => {
 
 const queryChain = (done) => {
   const foodToSearch = "burrito";
+  let q = Person.find({ favoriteFoods: foodToSearch }).sort({ name: 1 }).limit(2).select({ age:0 });
+  q.exec((err, people) => {
+    if (err) {
+      done(err)
+    }
+    done(null, people);
+  })
 
-  done(null /*, data*/);
 };
-// createManyPeople([{ name: 'Mary', age: 1 }, { name: 'Mary', age: 2 }], (err, response) => {
+// queryChain((err, res) => {
+//   if (err) {
+//     console.log(err)
+//   }
+//   else {
+//     console.log("q res: ", res);
+//   }
+// })
+// createManyPeople([{ name: 'kanon',favoriteFoods:['burrito','apple','mango'], age: 1 }, { name: 'ayon',favoriteFoods:['burrito','apple','mango'], age: 2 }], (err, response) => {
 //   if (err) {
 //     console.log(err)
 //   }
@@ -135,6 +149,7 @@ const queryChain = (done) => {
 //     console.log("Deletion Response:", response);
 //   }
 // })
+
 /** **Well Done !!**
 /* You completed these challenges, let's go celebrate !
  */
