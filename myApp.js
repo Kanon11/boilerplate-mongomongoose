@@ -101,11 +101,11 @@ const removeById = (personId, done) => {
   })
 };
 
-const removeManyPeople = (done) => {
+const removeManyPeople = async (done) => {
 
 
   const nameToRemove = "Mary";
- let response= Person.remove({ name: nameToRemove })
+ let response= await Person.remove({ name: nameToRemove })
   done(null ,response);
 };
 
