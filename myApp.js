@@ -105,10 +105,11 @@ const removeManyPeople =  (done) => {
 
 
   const nameToRemove = "Mary";
-  Person.remove({ name: nameToRemove }, (err, data) => {
+  Person.deleteMany({ name: nameToRemove }, (err, data) => {
     if (err) {
       done(err)
     }
+    console.log("first: ",data)
     done(null, data);
  })
 
